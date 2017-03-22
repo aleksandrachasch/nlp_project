@@ -282,18 +282,28 @@ def sentiment_analysis(collocations_array):
 
 		# Проверка работы модели на наших тестовых коллокациях
 		def predictor(collocations_array, pipeline):
-			mistakes = 0
+			_d = {}
+			collocation = []
+			polarity = []
+			# mistakes = 0
 			arr = []
+
 			df1 = pd.DataFrame({'text': collocations_array})
 			for i in df1.text:
 				arr.append(i)
-			с = 0
+			count = 0
 			for i in pipeline.predict(df1.text):
-				print(arr[с], ':', i)
-				с += 1
+				print(arr[count], ':', i)
+				collocation.append(arr[count])
+				polarity.append(i)
+				count += 1
+
 				# if true[arr[с]] != i:
 				# 	mistakes += 1
 			# print(mistakes)
+			_d['collocation'] = collocation
+			_d['polarity'] = polarity
+			return pd.DataFrame(_d)
 
 
 		# ВВЕДИТЕ СЛОВА, КОТОРЫЕ ХОТИТЕ ПРОВЕРИТЬ
@@ -301,8 +311,8 @@ def sentiment_analysis(collocations_array):
 		print('_'*30)
 		predictor(collocations_array, lr_pipeline)
 		print('_'*30)
-		predictor(collocations_array, rf_pipeline)
+		best_df = predictor(collocations_array, rf_pipeline)
 		print('_'*30)
 		predictor(collocations_array, dt_pipeline)
 
-
+	return best_df
