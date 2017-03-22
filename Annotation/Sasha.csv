@@ -1,28 +1,29 @@
-id;word;text;type;orientation;evaluation_type;aspects;head_PoS;split;evaluation_degree;comment
-1;"приветливое";review08427;word;neg;gen;объект в целом;ADJ;0;0.9;sarcasm
-2;не плох;review08427;collocation;pos;spec;кухня;ADJ;0;1.0;
-3;не понравились;review08427;collocation;neg;spec;кухня;V;0;1.0;
-4;очень пресный;review08427;collocation;neg;spec;кухня;ADJ;0;1.0;
-5;очень соленая;review08427;collocation;neg;spec;кухня;ADJ;0;1.0;
-6;не остался в восторге;review08427;collocation;neg;spec;кухня;V;0;1.0;
-7;дешево и сердито;review08557;collocation;ambi;gen;оъект в целом;NA;0;0.4;
-8;справляется плохо;review08557;collocation;neg;spec;сервис;V;0;1.0;
-9;очень гуманные;review08557;collocation;pos;spec;цена;ADJ;0;1.0;
-10;хорошее;review08557;word;pos;spec;кухня;NA;0;1.0;
-11;замечаний не возникло;review08557;collocation;pos;spec;кухня;V;0;1.0;
-12;очень хорошие;review08557; collocation;pos;spec;кухня;V;0;1.0;
-13;заканчивается быстро;review08557;collocation;neg;spec;кухня;V;0;1.0;
-14;большая;review08557;word;pos;spec;кухня;ADJ;0;1.0;
-15;сытная;review08557;word;pos;spec;кухня;ADJ;0;1.0;
-16;красивая сервировка;review08557;collocation;pos;spec;кухня;N;0;1.0;
-17;понравился гораздо больше;review08557;collocation;pos;spec;кухня;V;0;1.0;
-18;остался очень доволен;review08557;collocation;pos;spec;кухня;V;0;1.0;
-19;ФЕ-НО-МЕ-НА-ЛЬНЫЙ!;review08557;word;pos;spec;сервис;ADJ;0;1.0;
-20;все просто идеально;review08557;collocation;pos;spec;сервис;N;0;1.0;
-21;быстро;review08557;word;pos;spec;сервис;ADV;0;1.0;
-22;незаметно;review08557;word;pos;spec;сервис;ADV;0;1.0;
-23;корректно;review08557;word;pos;spec;сервис;ADV;0;1.0;
-24;очень понравилось;review08557;word;pos;spec;сервис;V;0;1.0;
-25;небольшими;review08557;word;pos;spec;цена;ADJ;0;1.0;
-26;достойной;review08557;word;pos;spec;кухня;ADJ;0;1.0;
-27;удивительным;review08557;word;pos;spec;сервис;ADJ;0;1.0;
+id,word,text,type,orientation,evaluation_type,aspects,head_PoS,split,evaluation_degree,comment
+1,"приветливое",review08427,word,neg,gen,объект в целом,ADJ,0,0.9,sarcasm
+2,не плох,review08427,collocation,pos,spec,кухня,ADJ,0,1.0,
+3,не понравились,review08427,collocation,neg,spec,кухня,V,0,1.0,
+4,очень пресный,review08427,collocation,neg,spec,кухня,ADJ,0,1.0,
+5,очень соленая,review08427,collocation,neg,spec,кухня,ADJ,0,1.0,
+6,не остался в восторге,review08427,collocation,neg,spec,кухня,V,0,1.0,
+7,дешево и сердито,review08557,collocation,ambi,gen,оъект в целом,NA,0,0.4,
+8,справляется плохо,review08557,collocation,neg,spec,сервис,V,0,1.0,
+9,очень гуманные,review08557,collocation,pos,spec,цена,ADJ,0,1.0,
+10,хорошее,review08557,word,pos,spec,кухня,NA,0,1.0,
+11,замечаний не возникло,review08557,collocation,pos,spec,кухня,V,0,1.0,
+12,очень хорошие,review08557, collocation,pos,spec,кухня,V,0,1.0,
+13,заканчивается быстро,review08557,collocation,neg,spec,кухня,V,0,1.0,
+14,большая,review08557,word,pos,spec,кухня,ADJ,0,1.0,
+15,сытная,review08557,word,pos,spec,кухня,ADJ,0,1.0,
+16,красивая сервировка,review08557,collocation,pos,spec,кухня,N,0,1.0,
+17,понравился гораздо больше,review08557,collocation,pos,spec,кухня,V,0,1.0,
+18,остался очень доволен,review08557,collocation,pos,spec,кухня,V,0,1.0,
+19,ФЕ-НО-МЕ-НА-ЛЬНЫЙ!,review08557,word,pos,spec,сервис,ADJ,0,1.0,
+20,все просто идеально,review08557,collocation,pos,spec,сервис,N,0,1.0,
+21,быстро,review08557,word,pos,spec,сервис,ADV,0,1.0,
+22,незаметно,review08557,word,pos,spec,сервис,ADV,0,1.0,
+23,корректно,review08557,word,pos,spec,сервис,ADV,0,1.0,
+24,очень понравилось,review08557,word,pos,spec,сервис,V,0,1.0,
+25,небольшими,review08557,word,pos,spec,цена,ADJ,0,1.0,
+26,достойной,review08557,word,pos,spec,кухня,ADJ,0,1.0,
+27,удивительным,review08557,word,pos,spec,сервис,ADJ,0,1.0,
+28,круто,review13185,word,pos,spec,объект в целом,ADV,0,1.0,
