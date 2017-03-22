@@ -204,115 +204,107 @@ def sentiment_analysis(collocations_array):
 			return np.array(fvs)
 
 
-	if __name__ == '__main__':
+	text_train = parse_xml('SentiRuEval_rest_markup_train.xml')
+	text_test = parse_xml('SentiRuEval_rest_markup_test.xml')
 
-		text_train = parse_xml('SentiRuEval_rest_markup_train.xml')
-		text_test = parse_xml('SentiRuEval_rest_markup_test.xml')
+	# Создаем датафрейм из тестового и тренировочного корпуса
+	df1 = pd.DataFrame(text_train)
+	df2 = pd.DataFrame(text_test)
+	frames = [df1, df2]
+	df = pd.concat(frames)
 
-		# Создаем датафрейм из тестового и тренировочного корпуса
-		df1 = pd.DataFrame(text_train)
-		df2 = pd.DataFrame(text_test)
-		frames = [df1, df2]
-		df = pd.concat(frames)
+	# Делаем датасет сбалансированным
+	df = pd.concat([df[df['sentiment'] == 'positive'].sample(frac=1)[:150], df[df['sentiment'] == 'negative']]).sample(frac=1)  # ЗАМЕНА
 
-		# Делаем датасет сбалансированным
-		df = pd.concat([df[df['sentiment'] == 'positive'].sample(frac=1)[:150], df[df['sentiment'] == 'negative']]).sample(frac=1)  # ЗАМЕНА
+	# Загружаем модель
+	model = gensim.models.KeyedVectors.load_word2vec_format(m, binary=True)
+	model.init_sims(replace=True)
 
-		# Загружаем модель
-		model = gensim.models.KeyedVectors.load_word2vec_format(m, binary=True)
-		model.init_sims(replace=True)
+	# Делим корпус на тестовый и тернировочный
+	X_train, X_test, y_train, y_test = train_test_split(df['term'], df['sentiment'], test_size=0.1)
 
-		# Делим корпус на тестовый и тернировочный
-		X_train, X_test, y_train, y_test = train_test_split(df['term'], df['sentiment'], test_size=0.1)
+	def do_smth_with_model(data_train, class_train, data_test, class_test, steps):
+		"""Функция получает на взох данные и параметры для pipeline и печатает
+		результаты работы обучающей модели на тестовой выборке + возвращает pipeline"""
+		print('\nModel train')
+		pipeline = Pipeline(steps=steps)
+		cv_results = cross_val_score(pipeline,
+									 data_train,
+									 class_train,
+									 cv=10,
+									 scoring='accuracy',
+									 )
+		print(cv_results.mean(), cv_results.std())
+		pipeline.fit(data_train, class_train)
+		class_predicted = pipeline.predict(data_test)
+		print(class_predicted)
+		print(classification_report(class_test, class_predicted))
+		return pipeline, class_predicted
 
+	w2v_featurizer = FunctionFeaturizer()  # создание своего векторизатора
 
-		def do_smth_with_model(data_train, class_train, data_test, class_test, steps):
-			"""Функция получает на взох данные и параметры для pipeline и печатает
-			результаты работы обучающей модели на тестовой выборке + возвращает pipeline"""
-			print('\nModel train')
-			pipeline = Pipeline(steps=steps)
+	# Word2Vec + LogisticRegression
+	print('\nCustom Transformer + LogisticRegression')
+	lr_pipeline, label_predicted = do_smth_with_model(X_train, y_train,
+													  X_test, y_test,
+													  steps=[('custom', w2v_featurizer),
+															 ('classifier', LogisticRegression())])
+	# Word2Vec + ExtraTreesClassifier
+	print('\nCustom Transformer + ExtraTreesClassifier')
+	etx_pipeline, label_predicted = do_smth_with_model(X_train, y_train,
+													   X_test, y_test,
+													   steps=[('custom', w2v_featurizer),
+															  ('classifier', ExtraTreesClassifier())])
+	# Word2Vec + RandomForestClassifier
+	print('\nCustom Transformer + RandomForestClassifier')
+	rf_pipeline, label_predicted = do_smth_with_model(X_train, y_train,
+													   X_test, y_test,
+													   steps=[('custom', w2v_featurizer),
+															  ('classifier', RandomForestClassifier())])
+	# Word2Vec + DecisionTreeClassifier
+	print('\nCustom Transformer + DecisionTreeClassifier')
+	dt_pipeline, label_predicted = do_smth_with_model(X_train, y_train,
+													   X_test, y_test,
+													   steps=[('custom', w2v_featurizer),
+															  ('classifier', DecisionTreeClassifier())])
+	# Проверка работы модели на наших тестовых коллокациях
+	def predictor(collocations_array, pipeline):
+		_d = {}
+		collocation = []
+		polarity = []
+		# mistakes = 0
+		arr = []
+		df1 = pd.DataFrame({'text': collocations_array})
+		for i in df1.text:
+			arr.append(i)
+		count = 0
+		for i in pipeline.predict(df1.text):
+			print(arr[count], ':', i)
+			collocation.append(arr[count])
+			polarity.append(i)
+			count += 1
+			# if true[arr[с]] != i:
+			# 	mistakes += 1
+		# print(mistakes)
+		_d['collocation'] = collocation
+		_d['polarity'] = polarity
+		return pd.DataFrame(_d)
 
-			cv_results = cross_val_score(pipeline,
-										 data_train,
-										 class_train,
-										 cv=10,
-										 scoring='accuracy',
-										 )
-			print(cv_results.mean(), cv_results.std())
-
-			pipeline.fit(data_train, class_train)
-
-			class_predicted = pipeline.predict(data_test)
-			print(class_predicted)
-
-			print(classification_report(class_test, class_predicted))
-
-			return pipeline, class_predicted
-
-
-		w2v_featurizer = FunctionFeaturizer()  # создание своего векторизатора
-
-		# Word2Vec + LogisticRegression
-		print('\nCustom Transformer + LogisticRegression')
-		lr_pipeline, label_predicted = do_smth_with_model(X_train, y_train,
-														  X_test, y_test,
-														  steps=[('custom', w2v_featurizer),
-																 ('classifier', LogisticRegression())])
-
-		# Word2Vec + ExtraTreesClassifier
-		print('\nCustom Transformer + ExtraTreesClassifier')
-		etx_pipeline, label_predicted = do_smth_with_model(X_train, y_train,
-														   X_test, y_test,
-														   steps=[('custom', w2v_featurizer),
-																  ('classifier', ExtraTreesClassifier())])
-
-		# Word2Vec + RandomForestClassifier
-		print('\nCustom Transformer + RandomForestClassifier')
-		rf_pipeline, label_predicted = do_smth_with_model(X_train, y_train,
-														   X_test, y_test,
-														   steps=[('custom', w2v_featurizer),
-																  ('classifier', RandomForestClassifier())])
-
-		# Word2Vec + DecisionTreeClassifier
-		print('\nCustom Transformer + DecisionTreeClassifier')
-		dt_pipeline, label_predicted = do_smth_with_model(X_train, y_train,
-														   X_test, y_test,
-														   steps=[('custom', w2v_featurizer),
-																  ('classifier', DecisionTreeClassifier())])
-
-		# Проверка работы модели на наших тестовых коллокациях
-		def predictor(collocations_array, pipeline):
-			_d = {}
-			collocation = []
-			polarity = []
-			# mistakes = 0
-			arr = []
-
-			df1 = pd.DataFrame({'text': collocations_array})
-			for i in df1.text:
-				arr.append(i)
-			count = 0
-			for i in pipeline.predict(df1.text):
-				print(arr[count], ':', i)
-				collocation.append(arr[count])
-				polarity.append(i)
-				count += 1
-
-				# if true[arr[с]] != i:
-				# 	mistakes += 1
-			# print(mistakes)
-			_d['collocation'] = collocation
-			_d['polarity'] = polarity
-			return pd.DataFrame(_d)
-
-
-		# ВВЕДИТЕ СЛОВА, КОТОРЫЕ ХОТИТЕ ПРОВЕРИТЬ
-		predictor(collocations_array, etx_pipeline)
-		print('_'*30)
-		predictor(collocations_array, lr_pipeline)
-		print('_'*30)
-		best_df = predictor(collocations_array, rf_pipeline)
-		print('_'*30)
-		predictor(collocations_array, dt_pipeline)
+	# ВВЕДИТЕ СЛОВА, КОТОРЫЕ ХОТИТЕ ПРОВЕРИТЬ
+	predictor(collocations_array, etx_pipeline)
+	print('_'*30)
+	predictor(collocations_array, lr_pipeline)
+	print('_'*30)
+	best_df = predictor(collocations_array, rf_pipeline)
+	print('_'*30)
+	predictor(collocations_array, dt_pipeline)
 
 	return best_df
+
+
+if __name__ == '__main__':
+	sentiment_analysis(['отличный выбор', 'не советуем', 'очень советуем', 'очень дорого', 'выше всяких похвал',
+ 					  'в общем прекрасно', 'нам все понравилось', 'в целом ничего', 'отвратительный', 'быстро',
+ 					  'очень плохое обслуживание', 'отличное меню', 'хороший', 'вкусный', 'замечательный', 'приятный',
+ 					  'красивый', 'отличный'])
+
