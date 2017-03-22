@@ -1,8 +1,7 @@
 import pandas as pd
 from modules.sentiment_analysis import sentiment_analysis
-from modules.collocation_extraction import CollocationExtraction
+from modules.CollocationExtraction import CollocationExtraction
 from modules.w2v_word_extraction import w2v_word_extraction
-from modules.tf_idf_word_extraction import tf_idf_word_extraction
 
 # first block
 

@@ -76,9 +76,11 @@ def w2v_word_extraction():
         est_pos = ['хороший_ADJ', 'вкусный_ADJ', 'замечательный_ADJ', 'приятный_ADJ', 'красивый_ADJ', 'отличный_ADJ']
         est_neg = ['плохой_ADJ', 'ужасный_ADJ', 'худший_ADJ', 'неприятный_ADJ']
 
-        web_model = gensim.models.KeyedVectors.load_word2vec_format(model_name, binary=True)
-        # our_model = gensim.models.Word2Vec.load('model')
-        web_model.init_sims(replace=True)
+        if model_name.endswith('bin'):
+            model = gensim.models.KeyedVectors.load_word2vec_format(model_name, binary=True)
+        else:
+            model = gensim.models.Word2Vec.load(model_name)
+        model.init_sims(replace=True)
 
         def output_similar(estimators, model):
             els = []
@@ -93,13 +95,18 @@ def w2v_word_extraction():
                         els += [common[0] for common in commons]
             return els
 
-        poses = output_similar(est_pos, web_model)
-        poses = [[re.sub('_.+', '', pos), 'positive'] for pos in set(poses)]
-        print('POSITIVE\n', poses)
+        def decision(est, string, model):
+            if model_name.endswith('bin'):
+                ests = output_similar(est, model)
+            else:
+                est = [re.sub('_.+', '', e) for e in est]
+                ests = output_similar(est, model)
+            ests = [[re.sub('_.+', '', est), string] for est in set(ests)]
+            print(string, ests)
+            return ests
 
-        negs = output_similar(est_neg, web_model)
-        negs = [[re.sub('_.+', '', neg), 'negative'] for neg in set(negs)]
-        print('NEGATIVE\n', negs)
+        negs = decision(est_neg, 'negative', model)
+        poses = decision(est_pos, 'positive', model)
 
         final_df = pd.DataFrame(negs+poses, columns = ['collocation', 'polarity'])
         return final_df
@@ -108,7 +115,8 @@ def w2v_word_extraction():
     df2 = parsing_xml('SentiRuEval_rest_markup_test.xml')
     df = pd.concat([df1, df2])
     preprocessing(df)
-    # create_our_model()
+    create_our_model()
+    test_model('our_model')
     test_model('web_0_300_20.bin')
 
 if __name__ == '__main__':
