@@ -7,7 +7,7 @@ from lxml import etree
 
 import pymorphy2
 from nltk.tokenize import TreebankWordTokenizer
-from stop_words import get_stop_words
+# from stop_words import get_stop_words
 
 import gensim
 
