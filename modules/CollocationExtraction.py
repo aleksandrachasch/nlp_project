@@ -208,17 +208,17 @@ class CollocationExtraction:
                     for word in tg:
                         tmp += word + ' '
                     self.trigrams.append(tmp)
-                    
-    
 
-corpora = ['SentiRuEval_rest_markup_test.xml','SentiRuEval_rest_markup_train.xml']
 
-new = CollocationExtraction()
-new.import_corpus(corpora)
-new.import_contrast_corpus('contrast_corpus.txt')
+if __name__ == '__main__':
+    corpora = ['SentiRuEval_rest_markup_test.xml', 'SentiRuEval_rest_markup_train.xml']
 
-new.generate_bigrams()
-new.generate_trigrams()
+    new = CollocationExtraction()
+    new.import_corpus(corpora)
+    new.import_contrast_corpus('contrast_corpus.txt')
 
-print(new.bigrams)
-print(new.trigrams)
+    new.generate_bigrams()
+    new.generate_trigrams()
+
+    print(new.bigrams)
+    print(new.trigrams)

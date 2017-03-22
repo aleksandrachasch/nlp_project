@@ -6,9 +6,9 @@ from modules.w2v_word_extraction import w2v_word_extraction
 # first block
 
 coll = CollocationExtraction()
-corpora = ['SentiRuEval_rest_markup_test.xml','SentiRuEval_rest_markup_train.xml']
+corpora = ['modules/SentiRuEval_rest_markup_test.xml','modules/SentiRuEval_rest_markup_train.xml']
 coll.import_corpus(corpora)
-coll.import_contrast_corpus('contrast_corpus.txt')
+coll.import_contrast_corpus('modules/contrast_corpus.txt')
 
 coll.generate_bigrams()
 coll.generate_trigrams()

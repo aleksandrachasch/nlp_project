@@ -50,14 +50,14 @@ def w2v_word_extraction():
         cleared = texts.apply(clear_punct)
         tokenized = cleared.apply(TreebankWordTokenizer().tokenize)
 
-        w = open('sents.txt', 'w', encoding='utf-8')
+        w = open('modules/sents.txt', 'w', encoding='utf-8')
         for sent in tokenized:
             w.write(' '.join(sent) + '\n')
 
-        os.system('mystem -cld sents.txt lemmatized.txt')
+        os.system('mystem -cld modules/sents.txt modules/lemmatized.txt')
 
-        a = open('sentences.txt', 'w', encoding='utf-8')
-        with open('lemmatized.txt', 'r', encoding='utf-8') as f:
+        a = open('modules/sentences.txt', 'w', encoding='utf-8')
+        with open('modules/lemmatized.txt', 'r', encoding='utf-8') as f:
             sentences = []
             for line in f:
                 words = re.findall('{(.+?)\??}', line)
@@ -67,10 +67,10 @@ def w2v_word_extraction():
     def create_our_model():
         logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
-        data = gensim.models.word2vec.LineSentence('sentences.txt')
+        data = gensim.models.word2vec.LineSentence('modules/sentences.txt')
         model = gensim.models.Word2Vec(data, size=1000, window=3, min_count=1, sg=1)
         model.init_sims(replace=True)
-        model.save('our_model')
+        model.save('modules/our_model')
 
     def test_model(model_name):
         est_pos = ['хороший_ADJ', 'вкусный_ADJ', 'замечательный_ADJ', 'приятный_ADJ', 'красивый_ADJ', 'отличный_ADJ']
@@ -111,13 +111,13 @@ def w2v_word_extraction():
         final_df = pd.DataFrame(negs+poses, columns = ['collocation', 'polarity'])
         return final_df
 
-    df1 = parsing_xml('SentiRuEval_rest_markup_train.xml')
-    df2 = parsing_xml('SentiRuEval_rest_markup_test.xml')
+    df1 = parsing_xml('modules/SentiRuEval_rest_markup_train.xml')
+    df2 = parsing_xml('modules/SentiRuEval_rest_markup_test.xml')
     df = pd.concat([df1, df2])
     preprocessing(df)
-    create_our_model()
-    test_model('our_model')
-    test_model('web_0_300_20.bin')
+    # create_our_model()
+    # test_model('modules/our_model')
+    test_model('modules/web_0_300_20.bin')
 
 if __name__ == '__main__':
     w2v_word_extraction()

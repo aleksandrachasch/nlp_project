@@ -72,7 +72,7 @@ collocations_array = ['отличный выбор', 'не советуем', '�
 
 def sentiment_analysis(collocations_array):
 	# Обученная модель из RusVectores
-	m = 'web_0_300_20.bin'    # 'ruscorpora_1_300_10.bin'  #
+	m = 'modules/web_0_300_20.bin'    # 'ruscorpora_1_300_10.bin'  #
 
 	morph = pymorphy2.MorphAnalyzer()
 	tokenizer = TreebankWordTokenizer()
@@ -204,8 +204,8 @@ def sentiment_analysis(collocations_array):
 			return np.array(fvs)
 
 
-	text_train = parse_xml('SentiRuEval_rest_markup_train.xml')
-	text_test = parse_xml('SentiRuEval_rest_markup_test.xml')
+	text_train = parse_xml('modules/SentiRuEval_rest_markup_train.xml')
+	text_test = parse_xml('modules/SentiRuEval_rest_markup_test.xml')
 
 	# Создаем датафрейм из тестового и тренировочного корпуса
 	df1 = pd.DataFrame(text_train)
@@ -214,7 +214,7 @@ def sentiment_analysis(collocations_array):
 	df = pd.concat(frames)
 
 	# Делаем датасет сбалансированным
-	df = pd.concat([df[df['sentiment'] == 'positive'].sample(frac=1)[:150], df[df['sentiment'] == 'negative']]).sample(frac=1)  # ЗАМЕНА
+	df = pd.concat([df[df['sentiment'] == 'positive'].sample(frac=1)[:300], df[df['sentiment'] == 'negative']]).sample(frac=1)  # ЗАМЕНА
 
 	# Загружаем модель
 	model = gensim.models.KeyedVectors.load_word2vec_format(m, binary=True)
