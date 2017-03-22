@@ -70,7 +70,7 @@ collocations_array = ['отличный выбор', 'не советуем', '�
 # 		'отличный': 'positive'}
 
 
-def sentiment_ananlysis(collocations_array):
+def sentiment_analysis(collocations_array):
 	# Обученная модель из RusVectores
 	m = 'web_0_300_20.bin'    # 'ruscorpora_1_300_10.bin'  #
 
