@@ -1,24 +1,24 @@
-id;word;text;type;orientation;evaluation_type;aspects;head_PoS;split;evaluation_degree;comment
-1;вкуснейшая еда;review02601;collocation;pos;spec;кухня;N;0;1.0;
-2;по очень бюджетным ценам;review02601;collocation;pos;spec;цена;N;0;1.0;
-3;порции большие;review02601;collocation;pos;spec;сервис;N;0;1.0;
-4;выше всяких похвал;review02601;collocation;pos;spec;кухня;ADV;0;1.0;
-5;приятная девушка, быстрая и расторопная;review02601;collocation;pos;spec;сервис;N;0;1.0;
-6;как и просили;review02601;collocation;pos;spec;сервис;ADV;0;1.0;
-7;еще горячий;review02601;collocation;pos;spec;кухня;ADJ;0;0.7;
-8;не успело растаять;review02601;collocation;pos;spec;кухня;V;0;0.7;
-9;приятно;review02601;word;pos;spec;объект в целом;ADV;0;0.4;
-10;пришлось дважды просить;review02601;collocation;neg;spec;сервис;V;0;1.0;
-11;милое;review02601;word;pos;spec;объект в целом;Adj;0;1.0;
-12;уютное;review02601;word;pos;spec;объект в целом;ADJ;0;1.0;
-13;вкусной едой;review02601;collocation;pos;spec;кухня;N;0;1.0;
-14;мизерными ценами;review02601;collocation;pos;spec;цена;N;0;1.0;
-15;неплохое;review03409;word;pos;spec;объект в целом;ADJ;0;1.0;
-16;не дотягивает немножко;review03409;collocation;neg;gen;объект в целом;V;0;1.0;
-17;все очень душевно;review03409;collocation;pos;spec;объект в целом;ADV;0;1.0;
-18;как-то еще чего-то не хватает;review03409;collocation;neg;gen;объект в целом;V;0;1.0;
-19;новенькое;review03409;word;pos;spec;объект в целом;ADJ;0;1.0;
-20;чистое;review03409;word;pos;spec;объект в целом;ADJ;0;1.0;
-21;не хватает мелочей;review03409;collocation;neg;gen;объект в целом;V;0;1.0;
-22;очень вкусно;review03409;collocation;pos;spec;кухня;ADV;0;1.0;
-23;над подачей некоторых блюд стоит повару поработать;review03409;collocation;neg;spec;кухня;V;0;1.0;
+id,word,text,type,orientation,evaluation_type,aspects,head_PoS,split,evaluation_degree,comment
+1,вкуснейшая еда,review02601,collocation,pos,spec,кухня,N,0,1.0,
+2,по очень бюджетным ценам,review02601,collocation,pos,spec,цена,N,0,1.0,
+3,порции большие,review02601,collocation,pos,spec,сервис,N,0,1.0,
+4,выше всяких похвал,review02601,collocation,pos,spec,кухня,ADV,0,1.0,
+5,приятная девушка, быстрая и расторопная,review02601,collocation,pos,spec,сервис,N,0,1.0,
+6,как и просили,review02601,collocation,pos,spec,сервис,ADV,0,1.0,
+7,еще горячий,review02601,collocation,pos,spec,кухня,ADJ,0,0.7,
+8,не успело растаять,review02601,collocation,pos,spec,кухня,V,0,0.7,
+9,приятно,review02601,word,pos,spec,объект в целом,ADV,0,0.4,
+10,пришлось дважды просить,review02601,collocation,neg,spec,сервис,V,0,1.0,
+11,милое,review02601,word,pos,spec,объект в целом,Adj,0,1.0,
+12,уютное,review02601,word,pos,spec,объект в целом,ADJ,0,1.0,
+13,вкусной едой,review02601,collocation,pos,spec,кухня,N,0,1.0,
+14,мизерными ценами,review02601,collocation,pos,spec,цена,N,0,1.0,
+15,неплохое,review03409,word,pos,spec,объект в целом,ADJ,0,1.0,
+16,не дотягивает немножко,review03409,collocation,neg,gen,объект в целом,V,0,1.0,
+17,все очень душевно,review03409,collocation,pos,spec,объект в целом,ADV,0,1.0,
+18,как-то еще чего-то не хватает,review03409,collocation,neg,gen,объект в целом,V,0,1.0,
+19,новенькое,review03409,word,pos,spec,объект в целом,ADJ,0,1.0,
+20,чистое,review03409,word,pos,spec,объект в целом,ADJ,0,1.0,
+21,не хватает мелочей,review03409,collocation,neg,gen,объект в целом,V,0,1.0,
+22,очень вкусно,review03409,collocation,pos,spec,кухня,ADV,0,1.0,
+23,над подачей некоторых блюд стоит повару поработать,review03409,collocation,neg,spec,кухня,V,0,1.0,

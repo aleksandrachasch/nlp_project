@@ -1,36 +1,36 @@
-id;word;text;type;orientation;evaluation_type;aspects;head_PoS;split;evaluation_degree;comment
-1;не могу удержаться;review07514;collocation;ambi;spec;объект в целом;V;0;0.3;
-2;неброский подвальчик;review07514;collocation;ambi;spec;объект в целом;N;0;0.5;
-3;нисколько не пожалел;review07514;collocation;pos;gen;объект в целом;V;0;1.0;
-4;добротный интерьер;review07514;collocation;pos;spec;интерьер;N;1;1.0;
-5;интерьер пришелся настроению;review07514;collocation;pos;spec;интерьер;V;1;1.0;
-6;интересны;review07514;word;pos;spec;интерьер;ADJ;0;0.7;
-7;уютное ощущние;review07514;collocation;pos;spec;интерьер;N;0;1.0;
-8;порадовала мгновенно появившаяся официантка;review07514;collocation;pos;spec;сервис;V;0;1.0;
-9;скорость;review07514;word;pos;spec;сервис;N;0;1.0;
-10;незаметность;review07514;word;pos;spec;сервис;N;0;1.0;
-11;выше всяческих похвал;review07514;collocation;pos;spec;кухня;N;0;1.0;
-12;хороший ужин;review07514;collocation;pos;spec;объект в целом;N;0;1.0;
-13;неназойливую музыку;review07514;collocation;pos;spec;интерьер;N;1;1.0;
-14;приятном месте;review07514;collocation;pos;spec;интерьер;N;0;1.0;
-15;правильно провести вечер;review07514;collocation;pos;spec;объект в целом;V;0;0.5;
-16;рекомендую;review07514;word;pos;spec;объект в целом;V;0;1.0;
-17;о чем хочется написать;review07514;word;ambi;gen;объект в целом;V;0;0.5;
-18;чисто;review08054;word;pos;spec;интерьер;ADV;0;1.0;
-19;просторная;review08054;word;pos;spec;интерьер;N;0;1.0;
-20;приличный вход;review08054;collocation;pos;spec;интерьер;N;0;1.0;
-21;блестящий унитаз;review08054;collocation;pos;spec;интерьер;N;0;1.0;
-22;зал не новый;review08054;collocation;ambi;spec;интерьер;N;0;1.0;
-23;зал аккуратный;review08054;collocation;pos;spec;интерьер;N;1;1.0;
-24;заслуживает всяческих похвал;review08054;collocation;pos;spec;кухня;V;0;1.0;
-25;вкуснейшие;review08054;word;pos;spec;кухня;N;0;1.0;
-26;столы ломились;review08054;collocation;pos;spec;кухня;V;0;1.0;
-27;восхитительные;review08054;word;pos;spec;кухня;ADJ;0;1.0;
-28;просто шедевр;review08054;collocation;pos;spec;кухня;N;0;1.0;
-29;сравнить не с чем;review08054;collocation;pos;gen;объект в целом;V;0;0.9;
-30;сыты;review08054;word;pos;spec;объект в целом;ADJ;0;0.8;
-31;довольны;review08054;word;pos;spec;объект в целом;ADJ;0;0.8;
-32;аккуратные;review08054;word;pos;spec;сервис;ADJ;0;1.0;
-33;приветливые;review08054;word;pos;spec;сервис;ADJ;0;1.0;
-34;вежливые;review08054;word;pos;spec;сервис;ADJ;0;1.0;
-35;советую;review08054;word;pos;gen;объект в целом;V;0;1.0;
+id,word,text,type,orientation,evaluation_type,aspects,head_PoS,split,evaluation_degree,comment
+1,не могу удержаться,review07514,collocation,ambi,spec,объект в целом,V,0,0.3,
+2,неброский подвальчик,review07514,collocation,ambi,spec,объект в целом,N,0,0.5,
+3,нисколько не пожалел,review07514,collocation,pos,gen,объект в целом,V,0,1.0,
+4,добротный интерьер,review07514,collocation,pos,spec,интерьер,N,1,1.0,
+5,интерьер пришелся настроению,review07514,collocation,pos,spec,интерьер,V,1,1.0,
+6,интересны,review07514,word,pos,spec,интерьер,ADJ,0,0.7,
+7,уютное ощущние,review07514,collocation,pos,spec,интерьер,N,0,1.0,
+8,порадовала мгновенно появившаяся официантка,review07514,collocation,pos,spec,сервис,V,0,1.0,
+9,скорость,review07514,word,pos,spec,сервис,N,0,1.0,
+10,незаметность,review07514,word,pos,spec,сервис,N,0,1.0,
+11,выше всяческих похвал,review07514,collocation,pos,spec,кухня,N,0,1.0,
+12,хороший ужин,review07514,collocation,pos,spec,объект в целом,N,0,1.0,
+13,неназойливую музыку,review07514,collocation,pos,spec,интерьер,N,1,1.0,
+14,приятном месте,review07514,collocation,pos,spec,интерьер,N,0,1.0,
+15,правильно провести вечер,review07514,collocation,pos,spec,объект в целом,V,0,0.5,
+16,рекомендую,review07514,word,pos,spec,объект в целом,V,0,1.0,
+17,о чем хочется написать,review07514,word,ambi,gen,объект в целом,V,0,0.5,
+18,чисто,review08054,word,pos,spec,интерьер,ADV,0,1.0,
+19,просторная,review08054,word,pos,spec,интерьер,N,0,1.0,
+20,приличный вход,review08054,collocation,pos,spec,интерьер,N,0,1.0,
+21,блестящий унитаз,review08054,collocation,pos,spec,интерьер,N,0,1.0,
+22,зал не новый,review08054,collocation,ambi,spec,интерьер,N,0,1.0,
+23,зал аккуратный,review08054,collocation,pos,spec,интерьер,N,1,1.0,
+24,заслуживает всяческих похвал,review08054,collocation,pos,spec,кухня,V,0,1.0,
+25,вкуснейшие,review08054,word,pos,spec,кухня,N,0,1.0,
+26,столы ломились,review08054,collocation,pos,spec,кухня,V,0,1.0,
+27,восхитительные,review08054,word,pos,spec,кухня,ADJ,0,1.0,
+28,просто шедевр,review08054,collocation,pos,spec,кухня,N,0,1.0,
+29,сравнить не с чем,review08054,collocation,pos,gen,объект в целом,V,0,0.9,
+30,сыты,review08054,word,pos,spec,объект в целом,ADJ,0,0.8,
+31,довольны,review08054,word,pos,spec,объект в целом,ADJ,0,0.8,
+32,аккуратные,review08054,word,pos,spec,сервис,ADJ,0,1.0,
+33,приветливые,review08054,word,pos,spec,сервис,ADJ,0,1.0,
+34,вежливые,review08054,word,pos,spec,сервис,ADJ,0,1.0,
+35,советую,review08054,word,pos,gen,объект в целом,V,0,1.0,

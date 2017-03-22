@@ -1,19 +1,19 @@
-id;word;text;type;orientation;evaluation_type;aspects;head_PoS;split;evaluation_degree;comment
-1;отличное;review05935;word;pos;gen;whole;ADJ;0;1;
-2;огромные порции;review05935;collocation;pos;spec;food;N;0;1;
-3;качество прекрасное;review05935;collocation;pos;spec;food;N;1;1;
-4;вполне на уровне;review05935;collocation;pos;spec;service;N;0;1;
-5;прекрасный;review06311;word;pos;gen;whole;ADJ;0;1;
-6;не прогадали;review06311;collocation;pos;gen;whole;V;0;1;
-7;великолепная;review06311;word;pos;spec;food;ADJ;0;1;
-8;вкусная;review06311;word;pos;spec;food;ADJ;0;1;
-9;разнообразная;review06311;word;pos;spec;food;ADJ;0;1;
-10;доброжелательные;review06311;word;pos;spec;service;ADJ;0;1;
-11;приятная;review06311;word;pos;spec;service|interior;ADJ;0;1;
-12;на высшем уровне;review06311;collocation;pos;gen;whole;PREP;0;1;
-13;приемлемую;review06311;word;pos;spec;price;ADJ;0;1;
-14;помогал;review06311;word;pos;spec;service;V;0;1;
-15;шел на встречу;review06311;collocation;pos;spec;service;V;0;1;
-16;очень приятно;review06311;collocation;pos;spec;service;ADJ;0;1;
-17;СУПЕР;review06311;word;pos;gen;whole;ADV;0;1;
-18;Рекомендую;review06311;word;pos;gen;whole;V;0;1;
+id,word,text,type,orientation,evaluation_type,aspects,head_PoS,split,evaluation_degree,comment
+1,отличное,review05935,word,pos,gen,whole,ADJ,0,1,
+2,огромные порции,review05935,collocation,pos,spec,food,N,0,1,
+3,качество прекрасное,review05935,collocation,pos,spec,food,N,1,1,
+4,вполне на уровне,review05935,collocation,pos,spec,service,N,0,1,
+5,прекрасный,review06311,word,pos,gen,whole,ADJ,0,1,
+6,не прогадали,review06311,collocation,pos,gen,whole,V,0,1,
+7,великолепная,review06311,word,pos,spec,food,ADJ,0,1,
+8,вкусная,review06311,word,pos,spec,food,ADJ,0,1,
+9,разнообразная,review06311,word,pos,spec,food,ADJ,0,1,
+10,доброжелательные,review06311,word,pos,spec,service,ADJ,0,1,
+11,приятная,review06311,word,pos,spec,service|interior,ADJ,0,1,
+12,на высшем уровне,review06311,collocation,pos,gen,whole,PREP,0,1,
+13,приемлемую,review06311,word,pos,spec,price,ADJ,0,1,
+14,помогал,review06311,word,pos,spec,service,V,0,1,
+15,шел на встречу,review06311,collocation,pos,spec,service,V,0,1,
+16,очень приятно,review06311,collocation,pos,spec,service,ADJ,0,1,
+17,СУПЕР,review06311,word,pos,gen,whole,ADV,0,1,
+18,Рекомендую,review06311,word,pos,gen,whole,V,0,1,
