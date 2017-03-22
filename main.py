@@ -1,12 +1,21 @@
 import pandas as pd
 from modules.sentiment_analysis import sentiment_analysis
-from modules.collocation_extraction import collocation_extraction
+from modules.collocation_extraction import CollocationExtraction
 from modules.w2v_word_extraction import w2v_word_extraction
 from modules.tf_idf_word_extraction import tf_idf_word_extraction
 
 # first block
 
-bigrams, trigrams = collocation_extraction()
+coll = CollocationExtraction()
+corpora = ['SentiRuEval_rest_markup_test.xml','SentiRuEval_rest_markup_train.xml']
+coll.import_corpus(corpora)
+coll.import_contrast_corpus('contrast_corpus.txt')
+
+coll.generate_bigrams()
+coll.generate_trigrams()
+
+bigrams = coll.bigrams
+trigrams = coll.trigrams
 
 sa_b_df = sentiment_analysis(bigrams)
 sa_t_df = sentiment_analysis(trigrams)
