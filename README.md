@@ -92,21 +92,27 @@
 #### Модель на веб-корпусе
 POSITIVE
 
+ ```
 ['красивый', 'positive'], ['отменный', 'positive'], ['штрудель', 'positive'], ['порадовать', 'positive'], ['обалденный', 'positive'], ['пахлава', 'positive'], ['вкусно', 'positive'], ['плохой', 'positive'], ['веселый', 'positive'], ['достойный', 'positive'], ['интересный', 'positive']
-
+ ```
+ 
 NEGATIVE
-
+ ```
 ['дерьмовый', 'negative'], ['неэстетичный', 'negative'], ['тягостный', 'negative'], ['паршивый', 'negative'], ['портить', 'negative'], ['омерзительный', 'negative'], ['неподходящий', 'negative'], ['мерзкий', 'negative'], ['приятный', 'negative'], ['вообще', 'negative'], ['малоприятный', 'negative'], ['хреновый', 'negative']
-
+ ```
+ 
 #### Модель, обученная нами
 POSITIVE
 
+ ```
 ['вид', 'positive'], ['советовать', 'positive'], ['красивый', 'positive'], ['кафе', 'positive'], ['спокойный', 'positive'], ['ненавязчивый', 'positive'], ['ролл', 'positive'], ['год', 'positive'], ['банкет', 'positive'], ['целое', 'positive'], ['оказываться', 'positive'], ['закуска', 'positive'], ['отношение', 'positive'], ['обстановка', 'positive'], ['неплохой', 'positive'], ['большой', 'positive'], ['рекомендовать', 'positive']
-
+ ```
+ 
 NEGATIVE
 
+ ```
 ['взгляд', 'negative'], ['народ', 'negative'], ['удаваться', 'negative'], ['посетитель', 'negative'], ['плохой', 'negative'], ['стоять', 'negative'], ['получаться', 'negative'], ['вообще', 'negative'], ['находиться', 'negative'], ['любить', 'negative'], ['подавать', 'negative'], ['тк', 'negative'], ['сервис', 'negative'], ['сходить', 'negative'], ['уходить', 'negative'], ['понимать', 'negative'], ['особо', 'negative']
-
+ ```
  
 ## Программа выделения коллокаций
  
